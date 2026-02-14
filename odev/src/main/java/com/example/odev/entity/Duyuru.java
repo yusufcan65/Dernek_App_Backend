@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("DUYURU")
-public class Duyuru {
+public class Duyuru extends Etkinlik{
 
     private String resimYolu;
 
