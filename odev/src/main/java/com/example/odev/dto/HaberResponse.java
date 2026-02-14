@@ -3,11 +3,19 @@ package com.example.odev.dto;
 import java.time.LocalDate;
 public class HaberResponse {
 
+    private Long id;
     private String konu;
     private String icerik;
     private LocalDate gecerlilikTarihi;
     private String haberLinki;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getKonu() {
         return konu;

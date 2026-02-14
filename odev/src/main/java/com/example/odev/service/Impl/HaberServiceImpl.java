@@ -3,7 +3,10 @@ package com.example.odev.service.Impl;
 import com.example.odev.Repository.HaberRepository;
 import com.example.odev.dto.HaberRequest;
 import com.example.odev.dto.HaberResponse;
+import com.example.odev.entity.Etkinlik;
+import com.example.odev.entity.EtkinlikTipi;
 import com.example.odev.entity.Haber;
+import com.example.odev.pattern.factory.EtkinlikFactory;
 import com.example.odev.service.HaberService;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +17,19 @@ import java.util.stream.Collectors;
 public class HaberServiceImpl implements HaberService {
 
     private final HaberRepository haberRepository;
+    private final EtkinlikFactory etkinlikFactory;
 
-    public HaberServiceImpl(HaberRepository haberRepository) {
+    public HaberServiceImpl(HaberRepository haberRepository, EtkinlikFactory etkinlikFactory) {
         this.haberRepository = haberRepository;
+        this.etkinlikFactory = etkinlikFactory;
     }
 
     @Override
     public HaberResponse haberGir(HaberRequest haberRequest) {
 
-        Haber haber = new Haber();
+        Etkinlik etkinlik = etkinlikFactory.olustur(EtkinlikTipi.HABER);
+
+        Haber haber = (Haber) etkinlik;
         haber.setHaberLinki(haberRequest.getHaberLinki());
         haber.setIcerik(haberRequest.getIcerik());
         haber.setKonu(haberRequest.getKonu());
@@ -72,6 +79,7 @@ public class HaberServiceImpl implements HaberService {
 
     private HaberResponse mapToResponse(Haber haber){
         HaberResponse haberResponse = new HaberResponse();
+        haberResponse.setId(haber.getId());
         haberResponse.setHaberLinki(haber.getHaberLinki());
         haberResponse.setIcerik(haber.getIcerik());
         haberResponse.setKonu(haber.getKonu());

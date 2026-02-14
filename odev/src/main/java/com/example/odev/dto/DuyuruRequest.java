@@ -10,7 +10,7 @@ public class DuyuruRequest {
     private String icerik;
     private LocalDate gecerlilikTarihi;
 
-    private MultipartFile resim;
+    private MultipartFile resimYolu;
 
     public String getKonu() {
         return konu;
@@ -36,11 +36,11 @@ public class DuyuruRequest {
         this.gecerlilikTarihi = gecerlilikTarihi;
     }
 
-    public MultipartFile getResim() {
-        return resim;
+    public MultipartFile getResimYolu() {
+        return resimYolu;
     }
 
-    public void setResim(MultipartFile resim) {
-        this.resim = resim;
+    public void setResimYolu(MultipartFile resimYolu) {
+        this.resimYolu = resimYolu;
     }
 }

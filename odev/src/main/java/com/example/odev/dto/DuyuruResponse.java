@@ -4,13 +4,24 @@ import java.time.LocalDate;
 
 public class DuyuruResponse {
 
+    private Long id;
+
+
     private String konu;
     private String icerik;
     private LocalDate gecerlilikTarihi;
 
-    private String resimUrl;
+    private String resimYolu;
 
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public String getKonu() {
         return konu;
     }
@@ -35,11 +46,11 @@ public class DuyuruResponse {
         this.gecerlilikTarihi = gecerlilikTarihi;
     }
 
-    public String getResimUrl() {
-        return resimUrl;
+    public String getResimYolu() {
+        return resimYolu;
     }
 
-    public void setResimUrl(String resimUrl) {
-        this.resimUrl = resimUrl;
+    public void setResimYolu(String resimYolu) {
+        this.resimYolu = resimYolu;
     }
 }
