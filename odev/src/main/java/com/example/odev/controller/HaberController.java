@@ -1,5 +1,6 @@
 package com.example.odev.controller;
 
+import com.example.odev.dto.DuyuruResponse;
 import com.example.odev.dto.HaberRequest;
 import com.example.odev.dto.HaberResponse;
 import com.example.odev.entity.Haber;
@@ -35,5 +36,11 @@ public class HaberController {
     public ResponseEntity<HaberResponse> haberSil(@PathVariable Long id){
         HaberResponse haberResponse = haberService.haberSil(id);
         return new ResponseEntity<>(haberResponse,HttpStatus.OK);
+    }
+
+    @PutMapping("/guncelle/{id}")
+    public ResponseEntity<HaberResponse> haberGuncelle(@PathVariable Long id, @RequestBody HaberRequest haberRequest){
+        HaberResponse haberResponse = haberService.haberGuncelle(id, haberRequest);
+        return new ResponseEntity<>(haberResponse, HttpStatus.OK);
     }
 }

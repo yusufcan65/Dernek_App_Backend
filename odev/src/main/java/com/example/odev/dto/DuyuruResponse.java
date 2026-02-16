@@ -1,6 +1,7 @@
 package com.example.odev.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class DuyuruResponse {
 
@@ -12,6 +13,8 @@ public class DuyuruResponse {
     private LocalDate gecerlilikTarihi;
 
     private String resimYolu;
+
+    private LocalDateTime createdDate;
 
 
 
@@ -52,5 +55,13 @@ public class DuyuruResponse {
 
     public void setResimYolu(String resimYolu) {
         this.resimYolu = resimYolu;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }

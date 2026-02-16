@@ -1,6 +1,8 @@
 package com.example.odev.dto;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 public class HaberResponse {
 
     private Long id;
@@ -8,6 +10,8 @@ public class HaberResponse {
     private String icerik;
     private LocalDate gecerlilikTarihi;
     private String haberLinki;
+
+    private LocalDateTime createdDate;
 
     public Long getId() {
         return id;
@@ -47,5 +51,13 @@ public class HaberResponse {
 
     public void setHaberLinki(String haberLinki) {
         this.haberLinki = haberLinki;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }

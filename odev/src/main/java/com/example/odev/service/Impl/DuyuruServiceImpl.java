@@ -60,6 +60,8 @@ public class DuyuruServiceImpl implements DuyuruService {
         duyuru.setKonu(duyuruRequest.getKonu());
         duyuru.setIcerik(duyuruRequest.getIcerik());
         duyuru.setGecerlilikTarihi(duyuruRequest.getGecerlilikTarihi());
+        String filePath = dosyaService.dosyaEkle(duyuruRequest.getResimYolu());
+        duyuru.setResimYolu(filePath);
 
         Duyuru toUpdate = duyuruRepository.save(duyuru);
 
@@ -92,6 +94,7 @@ public class DuyuruServiceImpl implements DuyuruService {
         duyuruResponse.setKonu(duyuru.getKonu());
         duyuruResponse.setGecerlilikTarihi(duyuru.getGecerlilikTarihi());
         duyuruResponse.setResimYolu(duyuru.getResimYolu());
+        duyuruResponse.setCreatedDate(duyuru.getCreatedDate());
         return duyuruResponse;
     }
 

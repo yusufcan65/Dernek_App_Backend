@@ -4,6 +4,7 @@ package com.example.odev.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table( name = "etkinlik")
@@ -20,6 +21,14 @@ public abstract class Etkinlik {
     private String icerik;
 
     private LocalDate gecerlilikTarihi;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdDate = LocalDateTime.now();
+    }
 
     public Long getId() {
         return id;
@@ -51,5 +60,13 @@ public abstract class Etkinlik {
 
     public void setGecerlilikTarihi(LocalDate gecerlilikTarihi) {
         this.gecerlilikTarihi = gecerlilikTarihi;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
     }
 }

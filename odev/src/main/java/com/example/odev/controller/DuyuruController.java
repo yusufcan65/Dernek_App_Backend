@@ -48,9 +48,26 @@ public class DuyuruController {
         return new ResponseEntity<>(duyurular,HttpStatus.OK);
     }
 
-    @PutMapping("/guncelle/{id}")
-    public ResponseEntity<DuyuruResponse> duyuruGuncelle(@PathVariable Long id, @RequestBody DuyuruRequest duyuruRequest){
+    @PutMapping(value = "/guncelle/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<DuyuruResponse> duyuruGuncelle(
+            @PathVariable Long id,
+            @RequestParam String konu,
+            @RequestParam String icerik,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate gecerlilikTarihi,
+            @RequestParam(required = false) MultipartFile resimYolu
+    ) {
+        DuyuruRequest duyuruRequest = new DuyuruRequest();
+        duyuruRequest.setKonu(konu);
+        duyuruRequest.setIcerik(icerik);
+        duyuruRequest.setGecerlilikTarihi(gecerlilikTarihi);
+        duyuruRequest.setResimYolu(resimYolu);
+
         DuyuruResponse duyuruResponse = duyuruService.duyuruGuncelle(id, duyuruRequest);
+        return new ResponseEntity<>(duyuruResponse, HttpStatus.OK);
+    }
+    @DeleteMapping("/sil/{id}")
+    public ResponseEntity<DuyuruResponse> duyuruSil(@PathVariable Long id){
+        DuyuruResponse duyuruResponse = duyuruService.duyuruSil(id);
         return new ResponseEntity<>(duyuruResponse,HttpStatus.OK);
     }
 

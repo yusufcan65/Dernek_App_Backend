@@ -84,6 +84,7 @@ public class HaberServiceImpl implements HaberService {
         haberResponse.setIcerik(haber.getIcerik());
         haberResponse.setKonu(haber.getKonu());
         haberResponse.setGecerlilikTarihi(haber.getGecerlilikTarihi());
+        haberResponse.setCreatedDate(haber.getCreatedDate());
 
         return haberResponse;
     }
