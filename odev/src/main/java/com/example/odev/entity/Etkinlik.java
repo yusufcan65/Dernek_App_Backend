@@ -10,11 +10,7 @@ import java.time.LocalDateTime;
 @Table( name = "etkinlik")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
-public abstract class Etkinlik {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public abstract class Etkinlik extends BaseEntity {
 
     private String konu;
     @Column(columnDefinition = "TEXT")
@@ -22,24 +18,6 @@ public abstract class Etkinlik {
 
     private LocalDate gecerlilikTarihi;
 
-    @Version
-    private int version;
-
-    @Column(name = "created_date")
-    private LocalDateTime createdDate;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createdDate = LocalDateTime.now();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getKonu() {
         return konu;
@@ -65,13 +43,7 @@ public abstract class Etkinlik {
         this.gecerlilikTarihi = gecerlilikTarihi;
     }
 
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
-    }
 
 
 }

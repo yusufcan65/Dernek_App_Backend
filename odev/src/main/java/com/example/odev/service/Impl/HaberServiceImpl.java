@@ -4,7 +4,7 @@ import com.example.odev.Repository.HaberRepository;
 import com.example.odev.dto.HaberRequest;
 import com.example.odev.dto.HaberResponse;
 import com.example.odev.entity.Etkinlik;
-import com.example.odev.entity.EtkinlikTipi;
+import com.example.odev.enums.EtkinlikTipi;
 import com.example.odev.entity.Haber;
 import com.example.odev.pattern.factory.EtkinlikFactory;
 import com.example.odev.service.HaberService;

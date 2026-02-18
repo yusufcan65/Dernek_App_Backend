@@ -5,7 +5,7 @@ import com.example.odev.dto.DuyuruRequest;
 import com.example.odev.dto.DuyuruResponse;
 import com.example.odev.entity.Duyuru;
 import com.example.odev.entity.Etkinlik;
-import com.example.odev.entity.EtkinlikTipi;
+import com.example.odev.enums.EtkinlikTipi;
 import com.example.odev.pattern.factory.EtkinlikFactory;
 import com.example.odev.service.DosyaService;
 import com.example.odev.service.DuyuruService;

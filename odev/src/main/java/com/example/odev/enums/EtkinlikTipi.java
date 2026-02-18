@@ -1,4 +1,4 @@
-package com.example.odev.entity;
+package com.example.odev.enums;
 
 public enum EtkinlikTipi {
     HABER,

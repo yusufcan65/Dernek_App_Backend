@@ -3,7 +3,7 @@ package com.example.odev.pattern.factory;
 import com.example.odev.entity.Etkinlik;
 import com.example.odev.entity.Haber;
 import com.example.odev.entity.Duyuru;
-import com.example.odev.entity.EtkinlikTipi;
+import com.example.odev.enums.EtkinlikTipi;
 import org.springframework.stereotype.Component;
 
 import java.util.EnumMap;
