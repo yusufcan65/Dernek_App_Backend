@@ -23,20 +23,11 @@ public class UserDetailServiceImpl implements UserDetailService , UserDetailsSer
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username){
-        // Veritabanından kullanıcıyı ara
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Kullanıcı bulunamadı: " + username));
 
-        // Veritabanındaki 'Role' bilgisini Spring Security'nin anlayacağı 'GrantedAuthority' tipine çevir
-        // Spring Security rollerin başında "ROLE_" ön eki olmasını bekler.
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().name());
-
-        // Spring Security'nin kendi User nesnesini döndür
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
-                user.getPassword(),
-                Collections.singletonList(authority)
-        );
+        return user;
     }
 }

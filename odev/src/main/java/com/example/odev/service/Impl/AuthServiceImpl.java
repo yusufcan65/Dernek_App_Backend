@@ -17,7 +17,7 @@ public class AuthServiceImpl implements AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService; // Kendi yazdığın interface
+    private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     public AuthServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder,

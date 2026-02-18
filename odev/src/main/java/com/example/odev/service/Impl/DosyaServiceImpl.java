@@ -27,7 +27,6 @@ public class DosyaServiceImpl  implements DosyaService {
 
             if (!klasor.exists()) {
                 boolean created = klasor.mkdirs();
-                System.out.println("Klasör oluşturuldu: " + created);
             }
 
             String dosyaAdi = UUID.randomUUID() + "_" + file.getOriginalFilename();
@@ -39,7 +38,7 @@ public class DosyaServiceImpl  implements DosyaService {
             return hedefDosya.getAbsolutePath();
 
         } catch (IOException e) {
-            e.printStackTrace();  // ⭐ gerçek hatayı gör
+            e.printStackTrace();
             throw new RuntimeException("Dosya kaydedilemedi");
         }
     }

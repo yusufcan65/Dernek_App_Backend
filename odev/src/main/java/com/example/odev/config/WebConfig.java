@@ -21,7 +21,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // Tarayıcıdan gelen /uploads/** isteklerini bilgisayardaki C:/uploads/ klasörüne yönlendirir
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations("file:///C:/uploads/");
     }
