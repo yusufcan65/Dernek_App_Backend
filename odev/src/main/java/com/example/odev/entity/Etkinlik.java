@@ -22,6 +22,9 @@ public abstract class Etkinlik {
 
     private LocalDate gecerlilikTarihi;
 
+    @Version
+    private int version;
+
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 
@@ -69,4 +72,6 @@ public abstract class Etkinlik {
     public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
     }
+
+
 }
