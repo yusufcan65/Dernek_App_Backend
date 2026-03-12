@@ -18,8 +18,8 @@ public class DosyaServiceImpl  implements DosyaService {
     @Override
     public String dosyaEkle(MultipartFile file) {
 
-        if (file.isEmpty()) {
-            throw new RuntimeException("Dosya boş");
+        if (file == null || file.isEmpty()) {
+            return null;
         }
 
         try {

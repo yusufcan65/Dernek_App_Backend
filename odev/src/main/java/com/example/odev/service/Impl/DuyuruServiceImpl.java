@@ -60,8 +60,12 @@ public class DuyuruServiceImpl implements DuyuruService {
         duyuru.setKonu(duyuruRequest.getKonu());
         duyuru.setIcerik(duyuruRequest.getIcerik());
         duyuru.setGecerlilikTarihi(duyuruRequest.getGecerlilikTarihi());
-        String filePath = dosyaService.dosyaEkle(duyuruRequest.getResimYolu());
-        duyuru.setResimYolu(filePath);
+        String yeniFilePath = dosyaService.dosyaEkle(duyuruRequest.getResimYolu());
+
+        if (yeniFilePath != null) {
+            // Sadece yeni bir dosya başarıyla kaydedilmişse yolu güncelle
+            duyuru.setResimYolu(yeniFilePath);
+        }
 
         Duyuru toUpdate = duyuruRepository.save(duyuru);
 

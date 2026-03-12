@@ -44,9 +44,10 @@ public class SecurityConfig {
                 .cors(org.springframework.security.config.Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/uploads/**").permitAll()
                         .requestMatchers("/api/auth/login", "/api/auth/register", "/swagger-ui/**", "/v3/api-docs/**", "/ws/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/haber/**", "/api/duyuru/**").permitAll()
-                        .requestMatchers("/uploads/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
